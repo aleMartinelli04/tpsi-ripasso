@@ -1,0 +1,19 @@
+{
+  "$schema": "schema.json",
+  "libri": [
+    {
+      "nome": "Il Signore degli Anelli",
+      "autore": "J.R.R. Tolkien",
+      "prezzo": 20.00
+    },
+    {
+      "nome": "Il Silmarillion",
+      "autore": "J.R.R. Tolkien",
+      "prezzo": 15.00
+    },
+    {
+      "nome": "Lo Hobbit",
+      "autore": "J.R.R. Tolkien"
+    }
+  ]
+}
