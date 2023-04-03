@@ -1,4 +1,7 @@
+import os
 from socket import socket, AF_INET, SOCK_DGRAM
+
+from dotenv import load_dotenv
 
 
 class UDPServer:
@@ -31,8 +34,14 @@ class UDPServer:
 
 
 if __name__ == '__main__':
+    load_dotenv()
+
+    HOST = os.getenv("HOST")
+    UDP_PORT = int(os.getenv("UDP_PORT"))
+
+
     def action(message: str) -> str:
         return message.upper()
 
 
-    UDPServer('', 5555, action).start()
+    UDPServer(HOST, UDP_PORT, action).start()

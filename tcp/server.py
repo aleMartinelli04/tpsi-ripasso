@@ -1,4 +1,7 @@
+import os
 from socket import socket, AF_INET, SOCK_STREAM
+
+from dotenv import load_dotenv
 
 
 class TCPServer:
@@ -44,8 +47,14 @@ class TCPServer:
 
 
 if __name__ == '__main__':
+    load_dotenv()
+
+    HOST = os.getenv("HOST")
+    TCP_PORT = int(os.getenv("TCP_PORT"))
+
+
     def action(data: str) -> str:
         return data.upper()
 
 
-    TCPServer('localhost', 3500, action).start()
+    TCPServer(HOST, TCP_PORT, action).start()

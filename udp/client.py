@@ -1,4 +1,7 @@
+import os
 from socket import socket, SOCK_DGRAM, AF_INET
+
+from dotenv import load_dotenv
 
 
 class UDPClient:
@@ -23,7 +26,12 @@ class UDPClient:
 
 
 if __name__ == '__main__':
-    client = UDPClient('', 5555)
+    load_dotenv()
+
+    HOST = os.getenv("HOST")
+    UDP_PORT = int(os.getenv("UDP_PORT"))
+
+    client = UDPClient(HOST, UDP_PORT)
 
     print(client.send("ciao"))
 

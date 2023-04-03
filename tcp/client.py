@@ -1,4 +1,7 @@
+import os
 from socket import socket, SOCK_STREAM, AF_INET
+
+from dotenv import load_dotenv
 
 
 class TCPClient:
@@ -24,7 +27,12 @@ class TCPClient:
 
 
 if __name__ == '__main__':
-    client = TCPClient('localhost', 3500)
+    load_dotenv()
+
+    HOST = os.getenv("HOST")
+    TCP_PORT = int(os.getenv("TCP_PORT"))
+
+    client = TCPClient(HOST, TCP_PORT)
     print(client.send('hello'))
 
     client.close()
